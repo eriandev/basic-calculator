@@ -322,7 +322,7 @@ color: white</string>
      <string>C</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="btnAllClear">
+   <widget class="QPushButton" name="btnClearAll">
     <property name="geometry">
      <rect>
       <x>250</x>
