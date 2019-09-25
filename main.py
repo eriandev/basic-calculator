@@ -17,6 +17,9 @@ class MainView(QMainWindow):
 
 		self.lcdAnswer.display(0)
 
+		self.btnAllClear.clicked.connect(self.allClear)
+		self.btnClear.clicked.connect(self.clear)
+
 		self.btn0.clicked.connect(self.addNum0)
 		self.btn1.clicked.connect(self.addNum1)
 		self.btn2.clicked.connect(self.addNum2)
@@ -27,6 +30,18 @@ class MainView(QMainWindow):
 		self.btn7.clicked.connect(self.addNum7)
 		self.btn8.clicked.connect(self.addNum8)
 		self.btn9.clicked.connect(self.addNum9)
+
+	def allClear(self):
+		self.lcdAnswer.display(0)
+
+	def clear(self):
+		pat = re.compile(self.ONE_NUMBER)
+		num = str(int(self.lcdAnswer.value()))
+		if pat.match(num):
+			self.allClear()
+		else:
+			tex = num[:-1]
+			self.lcdAnswer.display(str(tex))
 
 	def isEqual0(self):
 		return self.lcdAnswer.value() == 0
